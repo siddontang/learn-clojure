@@ -1,0 +1,1 @@
+因为需要研究[jepsen](https://github.com/aphyr/jepsen)，首先就需要学习一下clojure这门语言，这里，笔者主要参考[Clojure for the Brave and True](http://www.braveclojure.com/)这本书来进行学习，所以这里的学习笔记也主要是以这本书为主。
