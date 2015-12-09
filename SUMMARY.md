@@ -1,6 +1,7 @@
 # Summary
 
-* [你好 Clojure](hello-clojure.md)
-* [语法](syntax.md)
-* [数据结构](data-structure.md)
-* [函数](function.md)
+* [Hello Clojure](hello-clojure.md)
+* [Syntax](syntax.md)
+* [Data structure](data-structure.md)
+* [Function](function.md)
+* [Abstraction](abstraction.md)

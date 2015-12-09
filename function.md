@@ -175,7 +175,7 @@ user=> (#(str "hello " %) "world")
 
 我们使用`%`来表明匿名函数的参数，如果有多个参数，则使用`%1`，`%2`来获取，使用`%&`来获取可变参数。
 
-```clojure
+```
 user=> (#(str "hello " %) "world")
 "hello world"
 user=> (#(str "hello " %1 " " %2) "world" "a ha")
