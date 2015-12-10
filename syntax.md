@@ -26,7 +26,7 @@ If的格式如下:
 
 如果boolean-form为true，就执行then-form，否则执行optional-else-form，一些例子：
 
-```
+```clojure
 user=> (if false "hello" "world")
 "world"
 user=> (if true "hello" "world")
@@ -41,7 +41,7 @@ nil
 
 通过上面的if可以看到，我们的then或者else只有一个form，但有时候，我们需要在这个条件下面，执行多个form，这时候就要靠do了。
 
-```
+```clojure
 user=> (if true
   #_=> (do (println "true") "hello")
   #_=> (do (println "false") "world"))
@@ -55,7 +55,7 @@ true
 
 When类似if和do的组合，但是没有else这个分支了，
 
-```
+```clojure
 user=> (when true
   #_=> (println "true")
   #_=> (+ 1 2))
@@ -67,7 +67,7 @@ true
 
 Clojure使用nil和false来表示逻辑假，而其他的所有值为逻辑真，譬如：
 
-```
+```clojure
 user=> (if nil "hello" "world")
 "world"
 user=> (if "" "hello" "world")
@@ -82,7 +82,7 @@ user=> (if false "hello" "world")
 
 我们可以通过`nil?`来判断一个值是不是nil，譬如：
 
-```
+```clojure
 user=> (nil? nil)
 true
 user=> (nil? false)
@@ -93,7 +93,7 @@ false
 
 也可以通过`=`来判断两个值是否相等：
 
-```
+```clojure
 user=> (= 1 1)
 true
 user=> (= 1 2)
@@ -106,7 +106,7 @@ true
 
 我们也可以通过and和or来进行布尔运算，or返回第一个为true的数据，如果没有，则返回最后一个，而and返回第一个为false的数据，如果都为true，则返回最后一个为true的数据，譬如：
 
-```
+```clojure
 user=> (or nil 1)
 1
 user=> (or nil false)
@@ -123,7 +123,7 @@ user=> (and 1 2)
 
 我们可以通过def将一个变量命名，便于后续使用，譬如:
 
-```
+```clojure
 user=> (def a [1 2 3])
 #'user/a
 user=> (get a 1)

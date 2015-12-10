@@ -11,14 +11,14 @@ Clojure是一门函数式编程语言，function具有非常重要的地位。
 
 我们也可以将函数返回让外面使用：
 
-```
+```clojure
 user=> ((or + -) 1 2 3)
 6
 ```
 
 如果我们调用了非法的函数，会报错：
 
-```
+```clojure
 user=> (1 2 3)
 
 ClassCastException java.lang.Long cannot be cast to clojure.lang.IFn  user/eval1491 (form-init7840101683239336203.clj:1)
@@ -38,7 +38,7 @@ ClassCastException java.lang.Long cannot be cast to clojure.lang.IFn  user/eval1
 
 一个例子：
 
-```
+```clojure
 user=> (defn fun1
   #_=> "a function example"
   #_=> [name]
@@ -58,7 +58,7 @@ nil
 
 我们也可以进行函数重载，如下：
 
-```
+```clojure
 user=> (defn func-multi
   #_=> ([](str "no arg"))
   #_=> ([name1](str "arg " name1))
@@ -75,7 +75,7 @@ user=> (func-multi "1" "2")
 
 我们使用`&`来支持可变参数
 
-```
+```clojure
 user=> (defn func-args
   #_=> [name & names]
   #_=> (str name " " (clojure.string/join " " names)))
@@ -92,7 +92,7 @@ user=> (func-args "a" "b" "c")
 
 我们可以在函数参数里面通过特定的name来获取对应的collection的数据，譬如：
 
-```
+```clojure
 user=> (defn f-vec1 [[a]] [a])
 #'user/f-vec1
 user=> (f-vec1 [1 2 3])
@@ -107,7 +107,7 @@ user=> (f-vec2 [1 2 3])
 
 我们也可以使用map，譬如：
 
-```
+```clojure
 user=> (defn f-map [{a :a b :b}] [a b])
 #'user/f-map
 user=> (f-map {:a 1 :b 2})
@@ -117,7 +117,7 @@ user=> (f-map {:a 1 :c 2})
 ```
 
 上面这个例子我们可以用`:keys`来简化，
-```
+```clojure
 user=> (defn f-map-2 [{:keys [a b]}] [a b])
 #'user/f-map-2
 user=> (f-map-2 {:a 1 :b 2 :c 3})
@@ -126,7 +126,7 @@ user=> (f-map-2 {:a 1 :b 2 :c 3})
 
 我们可以通过`:as`来获取原始的map:
 
-```
+```clojure
 user=> (defn f-map-3 [{:keys [a b] :as m}] [a b (:c m)])
 #'user/f-map-3
 user=> (f-map-3 {:a 1 :b 2 :c 3})
@@ -137,7 +137,7 @@ user=> (f-map-3 {:a 1 :b 2 :c 3})
 
 Function的body里面可以包括多个form，Clojure会将最后一个form执行的值作为该函数的返回值:
 
-```
+```clojure
 user=> (defn func-body []
   #_=> (+ 1 2)
   #_=> (+ 2 3))
@@ -150,14 +150,14 @@ user=> (func-body)
 
 我们可以通过fn来声明一个匿名函数
 
-```
+```clojure
 user=> ((fn [name]  (str "hello " name)) "world")
 "hello world"
 ```
 
 我们也可以通过def来给一个匿名函数设置名称:
 
-```
+```clojure
 user=> (def a (fn [name] (str "hello " name)))
 #'user/a
 user=> (a "world")
@@ -166,7 +166,7 @@ user=> (a "world")
 
 当然，我们更加简化匿名函数，如下:
 
-```
+```clojure
 user=> #(str "hello " %)
 #object[user$eval1584$fn__1585 0x72445715 "user$eval1584$fn__1585@72445715"]
 user=> (#(str "hello " %) "world")
@@ -175,7 +175,7 @@ user=> (#(str "hello " %) "world")
 
 我们使用`%`来表明匿名函数的参数，如果有多个参数，则使用`%1`，`%2`来获取，使用`%&`来获取可变参数。
 
-```
+```clojure
 user=> (#(str "hello " %) "world")
 "hello world"
 user=> (#(str "hello " %1 " " %2) "world" "a ha")

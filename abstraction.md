@@ -27,7 +27,7 @@ Clojure也提供了abstraction的概念，这里我们主要来了解下sequence
 
 first返回collection里面的第一个元素，譬如：
 
-```
+```clojure
 user=> (first [1 2 3])
 1
 user=> (first '(1 2 3))
@@ -42,7 +42,7 @@ user=> (first {:a 1 :b 2})
 
 rest返回collection里面，第一个元素后面的sequence，譬如：
 
-```
+```clojure
 user=> (rest [1 2 3])
 (2 3)
 user=> (rest [1])
@@ -59,7 +59,7 @@ user=> (rest {:a 1 :b 2})
 
 Cons则是将一个元素添加到collection的开头，譬如：
 
-```
+```clojure
 user=> (cons 1 [1 2 3])
 (1 1 2 3)
 user=> (cons 1 '(1 2 3))
@@ -74,7 +74,7 @@ user=> (cons {:c 3} {:a 1 :b 2})
 
 从上面的例子可以看出，Clojure自身的vector，list等都实现了sequence abstraction，所以他们也能够被一些sequence function调用：
 
-```
+```clojure
 user=> (defn say [name] (str "hello " name))
 #'user/say
 user=> (map say [1 2])
@@ -95,7 +95,7 @@ user=> (map #(say (second %)) {:a 1 :b 2})
 
 Collection abstraction通常是用于处理整个data structure的，譬如:
 
-```
+```clojure
 user=> (count [1 2 3])
 3
 user=> (empty? [])
@@ -106,3 +106,13 @@ user=> (every? #(< % 4) [1 2 3])
 true
 ```
 
+### into
+
+一个重要的collection function就是into，sequence function通常会返回一个seq，而into会将返回的seq转换成原始的data structure，譬如:
+
+```clojure
+user=> (into [] [1 2 3])
+[1 2 3]
+user=> (into [] (map inc [1 2 3]))
+[2 3 4]
+```
