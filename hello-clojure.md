@@ -49,7 +49,7 @@ Hello, World!
 
 我们可以在src/clojure_noob/core.clj这个文件里面进行编辑，将World换成Clojure，如下：
 
-```
+```clojure
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
