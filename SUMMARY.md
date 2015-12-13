@@ -7,4 +7,5 @@
 * [Abstraction](abstraction.md)
 * [Macro](macro.md)
 * [Concurrency](concurrency.md)
+* [Leiningen](leiningen.md)
 * [Jepsen](jepsen.md)
