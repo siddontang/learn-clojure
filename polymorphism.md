@@ -65,7 +65,8 @@ record的定义很简单，我们使用defrecord来定义：
 
 ```clojure
 user=> (defrecord person [name age])
-user.person ```
+user.person
+```
 
 这里，我们定义了一个person的record，它含有name和age两个字段，然后我们可以通过下面的方法来具体创建一个person:
 
@@ -77,7 +78,8 @@ user=> (person. "siddon" 30)
 user=> (->person "siddon" 30)
 #user.person{:name "siddon", :age 30}
 ; 通过 map->persion 函数创建，参数是map
-user=> (map->person {:name "siddontang" :age 30) ```
+user=> (map->person {:name "siddontang" :age 30)
+```
 
 因为record其实可以认为是一个map，所以很多map的操作，我们也同样可以用于record上面。
 
