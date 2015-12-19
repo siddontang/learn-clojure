@@ -22,7 +22,7 @@ Clojure虽然是一门函数式编程语言，当也能很容易支持类似OOP�
 
 我们在repl里面执行:
 
-```clojure repl
+```clojure
 user=> (area r)
 52
 user=> (area c)
@@ -54,7 +54,7 @@ protocol其实更类似其他语言里面interface，我们定义一个protocol�
 
 然后就能直接使用DB protocol了。
 
-```clojure repl
+```clojure
 user=> (setup! my-db :test :node)
 "hello db"
 user=> (teardown! my-db :test :node)
@@ -74,7 +74,7 @@ user.person
 
 这里，我们定义了一个person的record，它含有name和age两个字段，然后我们可以通过下面的方法来具体创建一个person:
 
-```clojure repl
+```clojure
 ; 使用类似java的 . 操作符创建
 user=> (person. "siddon" 30)
 #user.person{:name "siddon", :age 30}
@@ -87,7 +87,7 @@ user=> (map->person {:name "siddontang" :age 30)
 
 因为record其实可以认为是一个map，所以很多map的操作，我们也同样可以用于record上面。
 
-```clojure repl
+```clojure
 user=> (def siddon (->person "siddon" 30))
 #'user/siddon
 user=> (assoc siddon :name "tang")
@@ -104,12 +104,13 @@ record可以实现特定的protocol，譬如:
 
 (defrecord person [name age]
   SayP
-  (say [this] (str "hello " name)))
+  (say [this] 
+    (str "hello " name)))
 ```
 
 上面我们定义了SayP这个protocol，并且让person这个record实现了相关的函数，然后我们就可以直接使用了。
 
-```clojure repl
+```clojure
 user=> (say (->person "siddon" 30))
 "hello siddon"
 ```
