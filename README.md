@@ -4,8 +4,3 @@
 + [Clojure From the Ground Up](https://aphyr.com/posts/301-clojure-from-the-ground-up-welcome)
 
 这里简要的列出相关的学习笔记，希望能快速入门Clojure以及进行jepsen的使用。
-
-TODO:
-
-* [ ] 使用lein进行clojure项目构建
-* [ ] 多态，defmulti, defprotocol
